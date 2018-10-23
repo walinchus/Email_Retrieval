@@ -31,11 +31,9 @@ import scraperwiki
 import lxml.html
 import mechanize
 
-import scraperwiki
-html = scraperwiki.scrape('https://en.wikipedia.org/wiki/Dwarf_planet')
-print html
 
-def scrape_table(root):
+
+'''def scrape_table(root):
     #grab all table rows <tr> in table class="tblSearchResults"
     rows = root.cssselect("table.caseCourtTable tr")
     #create an ID number set at 0 - will add 1 every time we store a record (below)
@@ -64,7 +62,7 @@ def scrape_table(root):
                 # Print out the data we've gathered
             print record, '------------'
             # Save the record to the datastore - 'ID' is our unique key - 
-            scraperwiki.sqlite.save(["Case Number"], record)
+            scraperwiki.sqlite.save(["Case Number"], record)'''
             
 
 SearchSites = ['https://www.google.com/search?q=The+Columbus+Foundation.org',
@@ -2456,10 +2454,10 @@ SearchSites = ['https://www.google.com/search?q=The+Columbus+Foundation.org',
             
 For Site in SearchSites:
   html = scraperwiki.scrape(Site)
-  root = lxml.html.fromstring(html)
-scrape_table(root)
+  print html
+  #root = lxml.html.fromstring(html)
+#scrape_table(root)
 
 
-
- print 'ALL DATA:', record
-scraperwiki.sqlite.save(unique_keys=['Date Filed and Judge'], data=record)
+#print 'ALL DATA:', record
+#scraperwiki.sqlite.save(unique_keys=['Date Filed and Judge'], data=record)
