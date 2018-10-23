@@ -2452,8 +2452,8 @@ SearchSites = ['https://www.google.com/search?q=The+Columbus+Foundation.org',
 'https://www.google.com/search?q=James+J.+and+Jamie+Thorsen+McNulty+Foundation.org']            
             
             
-For Site in SearchSites:
-  html = scraperwiki.scrape(Site)
+For website in SearchSites:
+  html = scraperwiki.scrape(website)
   print html
   #root = lxml.html.fromstring(html)
 #scrape_table(root)
