@@ -30,6 +30,7 @@
 import scraperwiki
 import lxml.html
 import mechanize
+import urllib2
 
 
 
@@ -2451,10 +2452,16 @@ SearchSites = ['https://www.google.com/search?q=The+Columbus+Foundation.org',
 'https://www.google.com/search?q=Mary+V.A.+Baldwin+Trust.org',
 'https://www.google.com/search?q=James+J.+and+Jamie+Thorsen+McNulty+Foundation.org']            
             
-            
-for website in SearchSites:
-  html = scraperwiki.scrape(website)
-  print html
+user_agent = 'Mozilla/5.0 (Mac) Gecko/2009021910 Firefox/3.0.7'
+
+headers={'User-Agent':user_agent,} 
+
+for url in SearchSites:
+  request=urllib2.Request(url,None,headers) #The assembled request
+  response = urllib2.urlopen(request)
+  data = response.read()# The data u need 
+  print data
+
   #root = lxml.html.fromstring(html)
 #scrape_table(root)
 
